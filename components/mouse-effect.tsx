@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 interface Point {
   x: number;
@@ -18,7 +18,7 @@ export function MouseEffect() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const updateCanvasSize = () => {
@@ -38,8 +38,8 @@ export function MouseEffect() {
 
       // Update and draw points
       pointsRef.current = pointsRef.current
-        .filter(point => point.age < 25)
-        .map(point => ({
+        .filter((point) => point.age < 25)
+        .map((point) => ({
           ...point,
           age: point.age + 1,
         }));
@@ -52,7 +52,7 @@ export function MouseEffect() {
       pointsRef.current.forEach((point, i) => {
         const opacity = 1 - point.age / 25;
         ctx.strokeStyle = `hsla(var(--primary), ${opacity})`;
-        
+
         if (i === 0) {
           ctx.moveTo(point.x, point.y);
         } else {
@@ -61,7 +61,7 @@ export function MouseEffect() {
           ctx.quadraticCurveTo(point.x, point.y, xc, yc);
         }
       });
-      
+
       ctx.stroke();
 
       rafRef.current = requestAnimationFrame(animate);
@@ -69,14 +69,14 @@ export function MouseEffect() {
 
     // Initialize
     updateCanvasSize();
-    window.addEventListener('resize', updateCanvasSize);
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("resize", updateCanvasSize);
+    window.addEventListener("mousemove", handleMouseMove);
     rafRef.current = requestAnimationFrame(animate);
 
     // Cleanup
     return () => {
-      window.removeEventListener('resize', updateCanvasSize);
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("resize", updateCanvasSize);
+      window.removeEventListener("mousemove", handleMouseMove);
       if (rafRef.current) {
         cancelAnimationFrame(rafRef.current);
       }
@@ -84,7 +84,7 @@ export function MouseEffect() {
   }, []);
 
   // Only show on non-touch devices
-  if (typeof window !== 'undefined' && 'ontouchstart' in window) {
+  if (typeof window !== "undefined" && "ontouchstart" in window) {
     return null;
   }
 
@@ -92,7 +92,7 @@ export function MouseEffect() {
     <canvas
       ref={canvasRef}
       className="pointer-events-none fixed inset-0 z-50"
-      style={{ mixBlendMode: 'soft-light' }}
+      // style={{ mixBlendMode: "soft-light" }}
     />
   );
 }

@@ -6,10 +6,10 @@ import { TypewriterEffect } from "@/components/typewriter-effect";
 import { motion } from "framer-motion";
 
 export function HeroSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const container = containerRef.current;
+    const container = heroRef.current;
     if (!container) return;
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -27,7 +27,7 @@ export function HeroSection() {
 
   return (
     <section
-      ref={containerRef}
+      ref={heroRef}
       className="relative min-h-[90vh] overflow-hidden bg-gradient-to-br from-background to-background/50"
     >
       <div
