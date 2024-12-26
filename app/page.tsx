@@ -1,40 +1,50 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { HeroSection } from '@/components/hero-section';
-import { StatsSection } from '@/components/stats-section';
-import { ProjectGrid } from '@/components/project-grid';
-import { TestimonialSlider } from '@/components/testimonial-slider';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { HeroSection } from "@/components/hero-section";
+import { StatsSection } from "@/components/stats-section";
+import { ProjectGrid } from "@/components/project-grid";
+import { TestimonialSlider } from "@/components/testimonial-slider";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  AppWindow,
+  MonitorCog,
+  MonitorSmartphone,
+  Palette,
+} from "lucide-react";
 
 const services = [
   {
-    title: 'Web Development',
-    icon: '/icons/web-development.svg',
-    description: 'Build fast, scalable, and secure web applications with modern frameworks.',
-    techStack: ['React', 'Next.js', 'Node.js'],
+    title: "Web Development",
+    icon: <AppWindow />,
+    description:
+      "Build fast, scalable, and secure web applications with modern frameworks.",
+    techStack: ["React", "Next.js", "Node.js"],
   },
   {
-    title: 'Mobile Development',
-    icon: '/icons/mobile-development.svg',
-    description: 'Create responsive and performant mobile apps for iOS and Android.',
-    techStack: ['React Native', 'Flutter'],
+    title: "Mobile Development",
+    icon: <MonitorSmartphone />,
+    description:
+      "Create responsive and performant mobile apps for iOS and Android.",
+    techStack: ["React Native", "Flutter"],
   },
   {
-    title: 'UI/UX Design',
-    icon: '/icons/design.svg',
-    description: 'Design beautiful, user-friendly interfaces with intuitive user experiences.',
-    techStack: ['Figma', 'Sketch', 'Adobe XD'],
+    title: "UI/UX Design",
+    icon: <Palette />,
+    description:
+      "Design beautiful, user-friendly interfaces with intuitive user experiences.",
+    techStack: ["Figma", "Sketch", "Adobe XD"],
   },
   {
-    title: 'SEO Optimization',
-    icon: '/icons/seo.svg',
-    description: 'Improve website visibility and ranking with cutting-edge SEO strategies.',
-    techStack: ['Google Analytics', 'SEO Tools'],
+    title: "SEO Optimization",
+    icon: <MonitorCog />,
+    description:
+      "Improve website visibility and ranking with cutting-edge SEO strategies.",
+    techStack: ["Google Analytics", "SEO Tools"],
   },
 ];
 
@@ -77,9 +87,9 @@ const Home = () => {
             >
               <h2 className="text-4xl font-bold">About Me</h2>
               <p className="text-lg text-muted-foreground">
-                I'm a full-stack developer passionate about creating exceptional digital experiences.
-                With expertise in modern web technologies, I bring ideas to life through clean code
-                and intuitive design.
+                I'm a full-stack developer passionate about creating exceptional
+                digital experiences. With expertise in modern web technologies,
+                I bring ideas to life through clean code and intuitive design.
               </p>
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold">Core Skills</h3>
@@ -107,8 +117,8 @@ const Home = () => {
           >
             <h2 className="text-4xl font-bold mb-4">Services</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive solutions tailored to your needs, from web development
-              to digital optimization.
+              Comprehensive solutions tailored to your needs, from web
+              development to digital optimization.
             </p>
           </motion.div>
 
@@ -124,15 +134,12 @@ const Home = () => {
                 <Card className="card-hover h-full">
                   <div className="p-6 space-y-4">
                     <div className="w-12 h-12 mb-4 relative">
-                      <Image
-                        src={service.icon}
-                        alt={service.title}
-                        fill
-                        className="object-contain"
-                      />
+                      {service.icon}
                     </div>
                     <h3 className="text-xl font-semibold">{service.title}</h3>
-                    <p className="text-muted-foreground">{service.description}</p>
+                    <p className="text-muted-foreground">
+                      {service.description}
+                    </p>
                     <div className="flex flex-wrap gap-2 pt-4">
                       {service.techStack.map((tech) => (
                         <Badge key={tech} variant="secondary">
@@ -163,7 +170,8 @@ const Home = () => {
           >
             <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore some of my recent work and the technologies used to build them.
+              Explore some of my recent work and the technologies used to build
+              them.
             </p>
           </motion.div>
           <ProjectGrid featured />
@@ -242,7 +250,7 @@ const Home = () => {
                     required
                   />
                 </div>
-                <Button className="w-full" size="lg">
+                <Button className="w-full " size="lg" type="submit">
                   Send Message
                 </Button>
               </form>
@@ -265,7 +273,7 @@ const SkillBar = ({ skill, progress }: { skill: string; progress: number }) => (
         initial={{ width: 0 }}
         whileInView={{ width: `${progress}%` }}
         viewport={{ once: true }}
-        transition={{ duration: 1, ease: 'easeOut' }}
+        transition={{ duration: 1, ease: "easeOut" }}
         className="h-full bg-primary"
       />
     </div>

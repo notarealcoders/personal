@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
-import { TypewriterEffect } from '@/components/typewriter-effect';
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { TypewriterEffect } from "@/components/typewriter-effect";
+import { motion } from "framer-motion";
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -16,24 +16,26 @@ export function HeroSection() {
       const { left, top, width, height } = container.getBoundingClientRect();
       const x = (e.clientX - left) / width;
       const y = (e.clientY - top) / height;
-      
-      container.style.setProperty('--x', `${x * 100}%`);
-      container.style.setProperty('--y', `${y * 100}%`);
+
+      container.style.setProperty("--x", `${x * 100}%`);
+      container.style.setProperty("--y", `${y * 100}%`);
     };
 
-    container.addEventListener('mousemove', handleMouseMove);
-    return () => container.removeEventListener('mousemove', handleMouseMove);
+    container.addEventListener("mousemove", handleMouseMove);
+    return () => container.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="relative min-h-[90vh] overflow-hidden bg-gradient-to-br from-background to-background/50"
     >
-      <div className="absolute inset-0 opacity-30"
+      <div
+        className="absolute inset-0 opacity-30"
         style={{
-          backgroundImage: 'radial-gradient(circle at var(--x, 50%) var(--y, 50%), hsl(var(--primary)) 0%, transparent 60%)',
-          transition: 'opacity 0.3s',
+          backgroundImage:
+            "radial-gradient(circle at var(--x, 50%) var(--y, 50%), hsl(var(--primary)) 0%, transparent 60%)",
+          transition: "opacity 0.3s",
         }}
       />
       <div className="container relative flex min-h-[90vh] flex-col items-center justify-center gap-8 text-center">
@@ -43,10 +45,7 @@ export function HeroSection() {
           transition={{ duration: 0.5 }}
         >
           <TypewriterEffect
-            words={[
-              { text: 'Crafting Digital' },
-              { text: 'Experiences' },
-            ]}
+            words={[{ text: "Crafting Digital" }, { text: "Experiences" }]}
           />
         </motion.div>
         <motion.p
@@ -55,8 +54,8 @@ export function HeroSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="max-w-2xl text-lg text-muted-foreground sm:text-xl"
         >
-          Full-stack developer specializing in building exceptional digital experiences
-          that combine beautiful design with powerful functionality.
+          Full-stack developer specializing in building exceptional digital
+          experiences that combine beautiful design with powerful functionality.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
