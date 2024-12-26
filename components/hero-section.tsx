@@ -38,7 +38,7 @@ export function HeroSection() {
           transition: "opacity 0.3s",
         }}
       />
-      <div className="container relative flex min-h-[90vh] flex-col items-center justify-center gap-8 text-center">
+      <div className="container mx-auto relative flex min-h-[90vh] flex-col items-center justify-center gap-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -1,30 +1,30 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme-provider';
-import { Navigation } from '@/components/navigation';
-import { Footer } from '@/components/footer';
-import { Toaster } from '@/components/ui/toaster';
-import { MouseEffect } from '@/components/mouse-effect';
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Navigation } from "@/components/navigation";
+import { Footer } from "@/components/footer";
+import { Toaster } from "@/components/ui/toaster";
+import { MouseEffect } from "@/components/mouse-effect";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Modern Portfolio',
-  description: 'A showcase of my work and expertise',
+  title: "Modern Portfolio",
+  description: "A showcase of my work and expertise",
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://your-domain.com',
-    title: 'Modern Portfolio',
-    description: 'A showcase of my work and expertise',
-    siteName: 'Modern Portfolio',
+    type: "website",
+    locale: "en_US",
+    url: "https://your-domain.com",
+    title: "Modern Portfolio",
+    description: "A showcase of my work and expertise",
+    siteName: "Modern Portfolio",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Modern Portfolio',
-    description: 'A showcase of my work and expertise',
-    creator: '@yourusername',
+    card: "summary_large_image",
+    title: "Modern Portfolio",
+    description: "A showcase of my work and expertise",
+    creator: "@yourusername",
   },
 };
 
@@ -35,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
