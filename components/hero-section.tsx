@@ -27,18 +27,18 @@ export function HeroSection() {
 
   return (
     <section
-      ref={heroRef}
-      className="relative min-h-[90vh] overflow-hidden bg-gradient-to-br from-background to-background/50"
+      // ref={heroRef}
+      className="relative min-h-[90vh] min-w-full overflow-hidden"
     >
-      <div
+      {/* <div
         className="absolute inset-0 opacity-30"
         style={{
           backgroundImage:
             "radial-gradient(circle at var(--x, 50%) var(--y, 50%), hsl(var(--primary)) 0%, transparent 60%)",
           transition: "opacity 0.3s",
         }}
-      />
-      <div className="container mx-auto relative flex min-h-[90vh] flex-col items-center justify-center gap-8 text-center">
+      /> */}
+      <div className=" relative flex min-h-[90vh] flex-col items-center justify-center gap-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
