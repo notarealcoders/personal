@@ -9,6 +9,8 @@ import {
   ProjectsSection,
   TestimonialsSection,
   ContactSection,
+  SkillsSection,
+  TimelineSection,
 } from "@/components/sections";
 import { useMouseGlow } from "@/hooks/use-mouse-glow";
 
@@ -22,7 +24,9 @@ export default function Home() {
       <div className="container mx-auto px-6">
         <HeroSection />
         <AboutSection />
+        <SkillsSection />
         <ServicesSection />
+        <TimelineSection />
         <StatsSection />
         <ProjectsSection />
         <TestimonialsSection />
