@@ -2,55 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  /* Primary Brand Colors */
-  --brand-primary: 222, 89%, 55%;
-  --brand-secondary: 280, 85%, 65%;
-  --brand-accent: 340, 82%, 52%;
+@layer base {
+  :root {
+    --brand-primary: 222, 89%, 55%;
+    --brand-secondary: 280, 85%, 65%;
+    --brand-accent: 340, 82%, 52%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: var(--brand-primary);
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: var(--brand-accent);
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: var(--brand-primary);
+    --radius: 0.75rem;
+  }
 
-  /* Enhanced Theme Colors */
-  --background: 0 0% 100%;
-  --foreground: 222 47% 11%;
-  --card: 0 0% 100%;
-  --card-foreground: 222 47% 11%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222 47% 11%;
-  --primary: var(--brand-primary);
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222 47% 11%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: var(--brand-accent);
-  --accent-foreground: 222 47% 11%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: var(--brand-primary);
-  --radius: 0.75rem;
-}
-
-.dark {
-  --background: 222 47% 11%;
-  --foreground: 210 40% 98%;
-  --card: 222 47% 11%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222 47% 11%;
-  --popover-foreground: 210 40% 98%;
-  --primary: var(--brand-primary);
-  --primary-foreground: 210 40% 98%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: var(--brand-accent);
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: var(--brand-primary);
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: var(--brand-primary);
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: var(--brand-accent);
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: var(--brand-primary);
+  }
 }
 
 @layer base {
@@ -61,7 +60,6 @@
     @apply bg-background text-foreground;
   }
   
-  /* Enhanced Typography */
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-tight font-bold;
   }
@@ -79,7 +77,6 @@
   }
 }
 
-/* Enhanced Animations */
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -89,11 +86,27 @@
   }
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
 
-/* Enhanced Transitions */
+.animate-gradient {
+  animation: gradient 8s linear infinite;
+  background-size: 200% auto;
+}
+
 .transition-transform {
   @apply transition-all duration-300 ease-out;
 }
@@ -102,17 +115,14 @@
   @apply transition-transform hover:scale-105;
 }
 
-/* Image Optimizations */
 .img-optimize {
   @apply object-cover w-full h-full;
 }
 
-/* Enhanced Card Styles */
 .card-hover {
   @apply transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
 }
 
-/* Enhanced Button Styles */
 .btn-primary {
   @apply bg-primary text-primary-foreground shadow-lg hover:opacity-90 transition-all duration-300;
 }
@@ -121,12 +131,10 @@
   @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-all duration-300;
 }
 
-/* Enhanced Section Spacing */
 .section-spacing {
   @apply py-16 md:py-24;
 }
 
-/* Gradient Backgrounds */
 .gradient-primary {
   @apply bg-gradient-to-br from-primary/20 via-background to-accent/20;
 }
@@ -135,19 +143,18 @@
   @apply bg-gradient-to-tr from-secondary/30 via-background to-primary/20;
 }
 
-/* Enhanced Loading States */
 .loading-skeleton {
   @apply animate-pulse bg-muted rounded;
 }
 
-/* Improved Focus States */
 .focus-ring {
   @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background;
 }
 
-/* Background Patterns */
-.bg-grid-pattern {
-  background-image: linear-gradient(to right, rgb(var(--primary) / 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(var(--primary) / 0.1) 1px, transparent 1px);
-  background-size: 24px 24px;
+.glass-effect {
+  @apply backdrop-blur-md bg-background/80 border border-border/50;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
 }

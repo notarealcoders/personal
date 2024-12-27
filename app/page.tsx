@@ -12,6 +12,9 @@ import {
   SkillsSection,
   TimelineSection,
 } from "@/components/sections";
+import { BlogPreview } from "@/components/sections/blog-preview";
+import { AchievementsSection } from "@/components/sections/achievements";
+import { FeaturedWork } from "@/components/sections/featured-work";
 import { useMouseGlow } from "@/hooks/use-mouse-glow";
 
 export default function Home() {
@@ -26,9 +29,12 @@ export default function Home() {
         <AboutSection />
         <SkillsSection />
         <ServicesSection />
+        <FeaturedWork />
         <TimelineSection />
         <StatsSection />
         <ProjectsSection />
+        <AchievementsSection />
+        <BlogPreview />
         <TestimonialsSection />
         <ContactSection />
       </div>

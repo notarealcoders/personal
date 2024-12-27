@@ -6,6 +6,7 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/toaster";
 import { MouseEffect } from "@/components/mouse-effect";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,13 +36,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className={inter.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          <AnimatedBackground />
           <MouseEffect />
           <div className="flex min-h-screen flex-col">
             <Navigation />
